@@ -1,5 +1,6 @@
 package manager;
 
+import model.Admin;
 import model.Hotel;
 
 import util.LanguageManager;
@@ -11,6 +12,7 @@ import java.util.Scanner;
 public class HotelManager
 {
     private List<Hotel> hotels = new ArrayList<>();
+    Admin admin = new Admin("Administrador Chefe", "amdmin@hotelbooking.com");
     private Scanner scanner;
 
 
@@ -37,8 +39,9 @@ public class HotelManager
             }
         }
 
-        hotels.add(new Hotel(name, address, description));
-        System.out.println(LanguageManager.getMessage("hotel.successful"));
+        Hotel newHotel = new Hotel(name, address, description);
+        hotels.add(newHotel);
+        admin.addHotel(newHotel);
     }
 
     public void listHotels()

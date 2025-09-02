@@ -5,15 +5,12 @@ import util.LanguageManager;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 public class CustomerManager
 {
     private List<Customer> customers = new ArrayList<>();
-    private Map<String, Integer> loyaltyPoints = new HashMap<>();
     private Scanner scanner;
 
     public CustomerManager(Scanner scanner)
@@ -37,8 +34,8 @@ public class CustomerManager
             }
         }
 
-        customers.add(new Customer(name, email));
-        loyaltyPoints.put(email, 0);
+        Customer newCustomer = new Customer(name, email);
+        customers.add(newCustomer);
         System.out.println(LanguageManager.getMessage("customer.created"));
     }
 
@@ -56,21 +53,32 @@ public class CustomerManager
 
     public void addLoyaltyPoints(String email, int points)
     {
-        loyaltyPoints.put(email, loyaltyPoints.getOrDefault(email, 0) + points);
+        Customer customer = getCustomerByEmail(email);
+        if (customer != null)
+        {
+            customer.addPoints(points);
+        }
     }
 
     public int getLoyaltyPoints(String email)
     {
-        return loyaltyPoints.getOrDefault(email, 0);
+        Customer customer = getCustomerByEmail(email);
+        if (customer != null)
+        {
+            return customer.getLoyaltyPoints();
+        }
+        return 0;
     }
 
     public void showLoyaltyPoints()
     {
         System.out.println(LanguageManager.getMessage("customer.loyalty_points.show"));
         String email = scanner.nextLine();
-        if (loyaltyPoints.containsKey(email))
+
+        Customer customer = getCustomerByEmail(email);
+        if (customer != null)
         {
-            System.out.println(MessageFormat.format(LanguageManager.getMessage("customer.loyalty_points.result"), email, loyaltyPoints.get(email)));
+            System.out.println(MessageFormat.format(LanguageManager.getMessage("customer.loyalty_points.result"), email, customer.getLoyaltyPoints()));
         }
         else
         {

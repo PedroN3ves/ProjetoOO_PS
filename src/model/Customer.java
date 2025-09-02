@@ -1,23 +1,23 @@
 package model;
 
-public class Customer
+public class Customer extends User
 {
-    private String name;
-    private String email;
+    private int loyaltyPoints;
 
     public Customer(String name, String email)
     {
-        this.name = name;
-        this.email = email;
+        super(name, email);
+        this.loyaltyPoints = 0;
     }
 
-    public String getName()
+    public int getLoyaltyPoints()
     {
-        return name;
+        return loyaltyPoints;
     }
 
-    public String getEmail()
+    public void addPoints(int points)
     {
-        return email;
+        this.loyaltyPoints += points;
     }
+
 }
