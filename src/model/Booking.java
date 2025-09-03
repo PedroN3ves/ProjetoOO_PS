@@ -6,7 +6,7 @@ public class Booking
     private String hotelName;
     private String roomNumber;
 
-    public Booking(String email, String hotelName, String roomNumber)
+    public Booking(String email, String hotelName, String roomNumber, int days, double amount)
     {
         this.email = email;
         this.hotelName = hotelName;

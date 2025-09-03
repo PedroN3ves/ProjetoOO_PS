@@ -22,7 +22,7 @@ public class Main
         HotelManager hotelManager = new HotelManager(scanner);
         RoomManager roomManager = new RoomManager(scanner, hotelManager);
         CustomerManager customerManager = new CustomerManager(scanner);
-        BookingManager bookingManager = new BookingManager(scanner, customerManager, roomManager);
+        BookingManager bookingManager = new BookingManager(scanner, customerManager, roomManager, hotelManager);
         ReviewManager reviewManager = new ReviewManager(scanner);
         AnalyticsManager analyticsManager = new AnalyticsManager(roomManager, scanner);
         LanguageManager.initLanguage();
