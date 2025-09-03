@@ -1,6 +1,6 @@
 package model;
 
-public class Reservation
+public abstract class Reservation
 {
     protected Customer customer;
     protected Hotel hotel;

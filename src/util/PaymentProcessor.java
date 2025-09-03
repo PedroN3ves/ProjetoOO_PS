@@ -3,10 +3,12 @@ package util;
 import java.util.Scanner;
 import java.text.MessageFormat;
 
-public class PaymentProcessor {
+public class PaymentProcessor
+{
     private static Scanner scanner = new Scanner(System.in);
 
-    public static boolean processPayment(String customerName, double amount) {
+    public static boolean processPayment(String customerName, double amount)
+    {
         System.out.println(LanguageManager.getMessage("payment.title"));
         System.out.println(LanguageManager.getMessage("payment.customer") + " " + customerName);
         System.out.println(MessageFormat.format(
@@ -22,7 +24,8 @@ public class PaymentProcessor {
         int choice = scanner.nextInt();
         scanner.nextLine();
 
-        switch (choice) {
+        switch (choice)
+        {
             case 1:
                 return processCreditCard();
             case 2:
@@ -35,7 +38,8 @@ public class PaymentProcessor {
         }
     }
 
-    private static boolean processCreditCard() {
+    private static boolean processCreditCard()
+    {
         System.out.print(LanguageManager.getMessage("card.number") + " ");
         String cardNumber = scanner.nextLine();
         System.out.print(LanguageManager.getMessage("card.expiry") + " ");
@@ -47,14 +51,16 @@ public class PaymentProcessor {
         return true;
     }
 
-    private static boolean processPIX() {
+    private static boolean processPIX()
+    {
         System.out.println(LanguageManager.getMessage("pix.key"));
         System.out.println(LanguageManager.getMessage("pix.waiting"));
         System.out.println(LanguageManager.getMessage("pix.received"));
         return true;
     }
 
-    private static boolean processBoleto() {
+    private static boolean processBoleto()
+    {
         System.out.println(LanguageManager.getMessage("boleto.generating"));
         System.out.println(LanguageManager.getMessage("boleto.generated"));
         System.out.println(LanguageManager.getMessage("boleto.confirmed"));
