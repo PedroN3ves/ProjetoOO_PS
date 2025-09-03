@@ -1,34 +1,72 @@
-# ProjetoOO_PS
+# Sistema de Reservas de Hotéis
 
 Projeto Utilizado: Online Booking System in Hotels
+Este projeto é um sistema de reservas de hotéis desenvolvido em Java para rodar no terminal.
 
-## Classes necesárias:
+## Funcionalidades Principais
 
-### Hoteis:
-- Representa os hotéis cadastrados no sistema
+### Gestão de Hotéis
+- Adicionar novos hotéis com nome, endereço e descrição
+- Listar todos os hotéis cadastrados
 
-### Quartos:
-- Irá guardar as informações dos quartos e seus status
+### Gestão de Quartos
+- Adicionar quartos a hotéis existentes com número, tipo (Single, Couple, Premium etc.) e preço
+- Listar quartos disponíveis por hotel
 
-### Usuário:
-- Classe base para usuários, que podem ser clientes ou administradores
+### Gestão de Clientes
+- Criar perfis de clientes com nome, e-mail e CPF
+- Consultar pontos de fidelidade acumulados
 
-### Clientes:
-- Herdada de usuário
-- Guarda as informações dos clientes
+### Reservas
+- Reservar quartos disponíveis informando hotel, número do quarto e CPF do cliente
+- Cancelar reservas existentes
+- Suporte a diferentes tipos de reservas:
+  - Padrão
+  - Promocional
+  - Corporativa
+- Exibir relatório de reservas
 
-### Administradores:
-- Herdada de usuário
-- Podem alterar dados do hotel ou do sistema
+### Avaliações
+- Clientes podem avaliar hotéis após a estadia
+- Listar todas as avaliações de cada hotel
 
-### Reservas:
-- Gerencia reservas, datas e status(confirmada/cancelada)
+### Relatórios Analíticos
+- Hotel mais reservado
+- Quarto mais caro e mais barato
+- Hotel com melhor avaliação
+- Hotel com mais pontos de fidelidade acumulados
 
-### Pagamentos:
-- Organiza pagamentos e preços
+### Suporte a Múltiplos Idiomas
+- Suporte completo para:
+  - Português 🇧🇷
+  - Inglês 🇺🇸
+  - Espanhol 🇪🇸
+- Seleção do idioma logo ao iniciar o sistema
 
-### Avaliações:
-- Lida e armazena avaliações e classificações deixadas por clientes
+### Simulação de Pagamento
+- Processamento fictício de pagamento no terminal
+- Exibição do valor total e confirmação da transação
 
-### Relatórios:
-- Responsável por gerar relatórios com receitas, taxas de ocupação e etc.
+### Suporte ao Cliente (Simulado)
+- Interface de suporte fictícia com interações no terminal
+- Simulação de atendimento humano
+
+## Estrutura do Projeto
+
+O código está organizado em pacotes:
+
+- `app` → ponto de entrada da aplicação (Main.java)
+- `manager` → classes que implementam a lógica do sistema (reservas, hotéis, clientes, relatórios etc.)
+- `model` → entidades principais do sistema (Hotel, Room, Customer, Reservation, Booking, Review, User, Admin etc.)
+- `util` → funcionalidades auxiliares como processador de pagamento, gerenciador de idiomas e suporte ao cliente
+
+## Como Executar
+
+**Pré-requisitos:**
+- JDK 17 ou superior instalado
+
+**Compilar o projeto:**
+No terminal, entre na pasta src e execute:
+
+```bash
+javac app/Main.java
